@@ -1,4 +1,4 @@
-FROM ubuntu:xenial
+FROM ubuntu:latest
 
 ARG BUILD_DATE
 ARG VERSION
@@ -10,7 +10,6 @@ RUN 	groupadd -g 1000 user \
 	&& useradd -r -u 1000 -g 1000 --create-home --home-dir $HOME user
 
 RUN apt update && apt -y install software-properties-common curl \
-    && add-apt-repository ppa:deluge-team/ppa \
     && apt update \
     && apt -y install deluged deluge-web deluge-console
 
